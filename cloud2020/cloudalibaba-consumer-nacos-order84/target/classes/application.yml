@@ -1,0 +1,51 @@
+server:
+  port: 84
+
+#spring:
+#  application:
+#    name: nacos-order-consumer
+#
+#  cloud:
+#    nacos:
+#      discovery:
+#        #nacos服务注册中心地址
+#        server-addr: localhost:8848
+#    sentinel:
+#      transport:
+#        #配置sentinel dashboard地址
+#        dashboard: localhost:8080    #sentinel监控8401
+#        #默认8719端口，假如占用自动加1
+#        port: 8719
+
+spring:
+  application:
+    name: cloudalibaba-sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        #nacos服务注册中心地址
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        #配置sentinel dashboard地址
+        dashboard: localhost:8080    #sentinel监控8401
+        #默认8719端口，假如占用自动加1
+        port: 8719
+
+
+# 消费者微服务的名称
+service-url:
+#  nacos-payment-provider
+  nacos-user-service: http://nacos-payment-provider
+
+# 加配置   一定要配置 激活sentinel对feign的支持
+feign:
+  sentinel:
+    enabled: true
+
+#暴露服务
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

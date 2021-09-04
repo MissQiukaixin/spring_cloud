@@ -1,0 +1,25 @@
+server:
+  port: 80
+
+# eureka的配置， 服务注册到哪里
+eureka:
+  client:
+    #    表示是否将自己注册进EurekaServer默认为true
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+
+
+#  可以解决请求超时
+#  设置feign客户端连接超时时间(openfign默认支持ribbon)
+ribbon:
+  #  指的是建立连接所用的时间，使用于网络状况正常的情况下，两端连接所用的时间
+  ReadTimeout: 5000
+  #  指的是建立连接后从服务器读取到可用资源所用的时间
+  ConnecTimeout: 5000
+
+
+# 开启豪猪哥
+feign:
+  hystrix:
+    enabled: true

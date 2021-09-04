@@ -1,0 +1,19 @@
+
+服务降级
+
+1.单个接口降级
+可以配置在提供端和消费端;
+可以配置在controller也可以配置在service层中
+@HystrixCommand(fallbackMethod ="方法")  写在需要配置的方法上
+需要配置一个兜底的方法
+
+2.全局配置兜底方法
+可以配置在提供端和消费端;
+可以配置在controller也可以配置在service层中（推荐配置在controller中）
+@DefaultProperties(defaultFallback = "方法")  写在需要配置的类上
+在需要降级的方法上配置  @HystrixCommand
+需要配置一个兜底的方法
+
+3。配置一个整个接口的兜底方法
+@FeignClient(value = "注册中心的id",fallback = 兜底的类.class)  兜底的类一般是继承这个service的
+一般这钟方法配置在service中

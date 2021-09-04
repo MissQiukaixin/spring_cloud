@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: dev  #开发环境
+#    active: test  #测试环境
+#    配置什么就加什么
+
+# active 对应的是Data Id
+# Group 需要自己配置
+# namespace 需要自己配置

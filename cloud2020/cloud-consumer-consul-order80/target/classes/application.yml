@@ -1,0 +1,17 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: consul-consumer-order
+
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        #        打开心跳检测
+        heartbeat:
+          enabled: true
+        service-name: ${spring.application.name}

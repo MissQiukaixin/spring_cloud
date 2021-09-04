@@ -1,0 +1,46 @@
+server:
+  port: 3344
+
+#skip-ssl-validation: true
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          skipSslValidation: true # 跳过ssl认证  需要配置这个
+#          http://localhost:3344/main/config-dev.yml
+#           http://localhost:3344/main/config-prod.yml
+          uri: https://github.com/MissQiukaixin/springcloud-config.git
+          search-paths:
+            - springcloud-config
+          username: "501411356@qq.com"
+          password: "Qiukaixin1"
+
+#      label: master
+      label: main      #读取分支
+  #rabbitmq配置    为了做动态的通知 使用bus总线进行管理
+  rabbitmq:
+    host: 192.168.8.102
+    port: 5672
+    username: admin
+    password: admin
+
+# eureka的配置， 服务注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/  #,http://eureka7002.com:7002/eureka/
+# rabbitmq相关配置，暴露bus属性配置的端点
+
+#  curl -X POST "http://192.168.8.102:3344/actuator/bus-refresh"   刷新
+#  定点刷新只刷新你想要的   curl -X POST "http://192.168.8.102:3344/actuator/bus-refresh/项目名称：端口（指定启动的服务）"
+#  只刷新3355  curl -X POST "http://192.168.8.102:3344/actuator/bus-refresh/config-client:3355（指定启动的服务）"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
+
+

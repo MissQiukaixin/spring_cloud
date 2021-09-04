@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-provider-dept-8001" />
+        <module name="springcloud-consumer-dept-80" />
+        <module name="springcloud-zuul-9527" />
+        <module name="springcloud-eureka-7002" />
+        <module name="springcloud-eureka-7001" />
+        <module name="springcloud-provider-dept-8005-hystrix-dashboard" />
+      </profile>
+      <profile name="Annotation profile for springcloud" enabled="true">
+        <sourceOutputDir name="../../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springcloud-provider-dept-8002" />
+        <module name="springcloud-api" />
+        <module name="springcloud-consumer-dept-feign" />
+        <module name="git-feign-89" />
+        <module name="springcloud-provider-dept-8003" />
+        <module name="springcloud-eureka-7003" />
+        <module name="springcloud-consumer-hystrix-dashboard" />
+        <module name="springcloud-provider-dept-8004-hystrix" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="git-feign-89" target="8" />
+      <module name="springcloud" target="1.5" />
+      <module name="springcloud-api" target="8" />
+      <module name="springcloud-consumer-dept-80" target="8" />
+      <module name="springcloud-consumer-dept-feign" target="8" />
+      <module name="springcloud-consumer-hystrix-dashboard" target="8" />
+      <module name="springcloud-eureka-7001" target="8" />
+      <module name="springcloud-eureka-7002" target="8" />
+      <module name="springcloud-eureka-7003" target="8" />
+      <module name="springcloud-provider-dept-8001" target="8" />
+      <module name="springcloud-provider-dept-8002" target="8" />
+      <module name="springcloud-provider-dept-8003" target="8" />
+      <module name="springcloud-provider-dept-8004-hystrix" target="8" />
+      <module name="springcloud-provider-dept-8005-hystrix-dashboard" target="8" />
+      <module name="springcloud-zuul-9527" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

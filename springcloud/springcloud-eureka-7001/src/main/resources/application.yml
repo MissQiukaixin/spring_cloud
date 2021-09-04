@@ -1,0 +1,16 @@
+server:
+  port: 7001
+
+# eureka配置
+  # Eureka配置：配置服务注册中心地址
+eureka:
+  instance:
+    hostname: eureka7001.com #修改Eureka上的默认描述信息
+  client:
+#    eureka.client.registerWithEureka=false
+#    eureka.client.fetchRegistry=false
+    refister-with-eureka: false  #是否注册自己
+    fetch-registry: false  #false为自己为注册中心
+    service-url:  #配置集群的部署 要把所有的主机配上
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+

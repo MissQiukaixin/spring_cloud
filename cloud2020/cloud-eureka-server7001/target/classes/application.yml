@@ -1,0 +1,27 @@
+
+server:
+  port: 7001
+
+# eureka的配置， 服务注册到哪里
+eureka:
+  instance:
+    hostname: eureka7001.com   #eureka服务端的实例名称
+
+  #    instance-id: localhost
+  client:
+    #    false表示自己端就是注册中心，我的职责即使维护服务器实例，并不需要检索服务
+    fetch-registry: false
+    #    false表示不向注册中心注册自己
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka/
+  server:
+    #关闭自我保护机制，保证不可用服务被及时剔除
+    enable-self-preservation: false
+    #清理无效节点的时间间隔,默认60000毫秒,即60秒 (此处时间间隔设置为2s)
+    eviction-interval-timer-in-ms: 2000
+
+      #      地址解析有问题
+    # prefer-ip-address: true      #地址解析有问题
+#  instance:
+#    instance-id: spring-cloud-provider-dept-8005

@@ -1,0 +1,30 @@
+server:
+  port: 80
+
+
+spring:
+  application:
+    name: cloud-order-service
+    #    ********************
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+#      采样率介于0和1之间，1表示全部采集
+      probability: 1
+      #    ********************
+# eureka的配置， 服务注册到哪里
+eureka:
+  client:
+    #    表示是否将自己注册进EurekaServer默认为true
+    register-with-eureka: true
+    #    集群需要配置问true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+
+  instance:
+    #      用来区分服务的名称
+    instance-id: order80
+#    配置这个可以在鼠标停留的时候查看ip地址
+    prefer-ip-address: true
